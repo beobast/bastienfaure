@@ -1,7 +1,7 @@
 Package.describe({
     name: 'mdl',
     version: '0.0.1',
-    summary: ''
+    summary: 'Material Design Lite'
 });
 
 Package.onUse(function(api) {

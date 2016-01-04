@@ -1,0 +1,28 @@
+<head>
+    <title>Bastien Faure</title>
+</head>
+
+<body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout-icon"></div>
+            <div class="mdl-layout__header-row">
+                <span class="mdl-layout-title">{{title}}</span>
+                <div class="mdl-layout-spacer"></div>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Bastien Faure</span>
+            <nav class="mdl-navigation">
+                {{> navLink icon="home" text="Accueil"}}
+                {{> navLink icon="description" text="Articles"}}
+                {{> navLink icon="play_circle_filled" text="Vidéos"}}
+                {{> navLink icon="link" text="Liens"}}
+                {{> navLink icon="mail" text="Contact"}}
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            {{> Template.dynamic tpt}}
+        </main>
+    </div>
+</body>

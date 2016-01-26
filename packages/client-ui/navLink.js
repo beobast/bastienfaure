@@ -1,5 +1,3 @@
-const tpt = Template.navLink;
-
-tpt.events({
-    'click': () => Dispatch('NAVLINK', { 'text': Template.instance().data.text }) 
+Template.navLink.events({
+    'click': () => Dispatch('NAVLINK', { 'template': Template.instance().data.value }) 
 });

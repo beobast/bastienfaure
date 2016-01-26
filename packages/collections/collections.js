@@ -1,11 +1,16 @@
 collections = {
     'videos': new Mongo.Collection('videos')
+    , 'articles': new Mongo.Collection('articles')
 };
 
+
 if (Meteor.isServer) {
-    Meteor.publish('allVideos', () => collections.videos.find()); 
+    collections.articles.remove({});
+    Meteor.publish('videos', () => collections.videos.find()); 
+    Meteor.publish('articles', () => collections.articles.find()); 
 }
 
 if (Meteor.isClient) {
-    Meteor.subscribe('allVideos');
+    Meteor.subscribe('videos');
+    Meteor.subscribe('articles');
 }

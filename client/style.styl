@@ -1,16 +1,66 @@
-.video
-  display flex
-  justify-content center
+.mdl-layout__content
+  background #fafafa
+
+.mdl-layout__drawer
+  background white
+
+hoverPointer()
   &:hover
     cursor pointer
-  .description
-    height 36px
 
-.mdl-card
-  max-width 100%
+.videoItem,
+.article
+  display flex
+  justify-content center
+  .mdl-card
+    hoverPointer()
+    max-width 100%
+    .description
+      height 36px
+      width initial 
+      max-width 330px 
+
 
 .mdl-navigation__link
+  hoverPointer()
   display flex !important
   align-items center
+  &.selected
+    background-color #e0e0e0
   .material-icons
     margin-right 32px
+
+
+.article-content
+  padding 40px
+
+article
+  padding 16px
+  max-width 700px
+  margin auto
+  &.mdl-card
+    width initial
+  img
+    display block
+    margin auto
+    max-width 100%
+  h1
+    text-align center
+  pre
+    overflow-x auto
+    max-width 100%
+
+iframe
+  margin auto
+  padding 16px
+
+
+
+@media (max-width: 480px)
+  .article-content
+    padding 16px
+
+  .videoItem
+    .mdl-card
+      .description
+        display none

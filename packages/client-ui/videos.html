@@ -1,7 +1,9 @@
 <template name="videos">
     <div class="page-content mdl-grid">
-        {{#each vid in videos}}
-            <div class="mdl-cell mdl-cell-3-col">{{> video vid}}</div>
+        {{#each v in videos}}
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+                {{> videoItem v}}
+            </div>
         {{/each}}
     </div>
 </template>

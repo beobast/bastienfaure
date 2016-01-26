@@ -15,17 +15,27 @@ Package.onUse(function(api) {
             , 'meteorflux:meteorflux'
             , 'collections'
             , 'client-state'
+            , 'utils'
+            , 'ramda:ramda'
+            , 'parser'
+            , 'reactive-var'
         ]
         , 'client'
     );
     api.addFiles(
         [
-            'video.html'
-            , 'video.js'
-            , 'navLink.html'
+            'navLink.html'
             , 'navLink.js'
+            , 'videoItem.html'
+            , 'videoItem.js'
             , 'videos.html'
             , 'videos.js'
+            , 'article.html'
+            , 'article.js'
+            , 'articleItem.html'
+            , 'articleItem.js'
+            , 'articles.html'
+            , 'articles.js'
             , 'main.html'
             , 'main.js'
         ]

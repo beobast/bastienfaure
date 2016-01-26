@@ -10,6 +10,8 @@ Package.onUse(function(api) {
         [
             'ecmascript'
             , 'meteorflux:meteorflux'
+            , 'ramda:ramda'
+            , 'collections'
             , 'utils'
         ]
         , 'client');

@@ -1,3 +1,5 @@
+/* global Dispatch, Template, Actions */
+
 const tpt = Template.articleItem;
 
 tpt.onRendered(function() {
@@ -6,10 +8,11 @@ tpt.onRendered(function() {
 });
 
 tpt.events({
-    'click .mdl-card': () => Dispatch('ARTICLE', { 'path': Template.instance().data.path }) 
+    // 'click .mdl-card': () => Dispatch('SET_ARTICLE', { 'id': Template.instance().data.path })
+    'click .mdl-card': () => Dispatch(Actions.setArticle(Template.instance().data.path))
 });
 
 tpt.helpers({
-    'title': () => 'title' 
+    'title': () => 'title'
     , 'description': () => Template.instance().data.path
 });

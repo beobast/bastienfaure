@@ -1,5 +1,5 @@
-const tpt = Template.videos;
+/* global Template, State */
 
-tpt.helpers({
-    'videos': () => State.get('videos') 
+Template.videos.helpers({
+    'videos': () => State.get('videos')
 });

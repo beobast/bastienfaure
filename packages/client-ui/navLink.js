@@ -1,3 +1,5 @@
+/* global Template, Dispatch, Actions */
+
 Template.navLink.events({
-    'click': () => Dispatch('NAVLINK', { 'template': Template.instance().data.value }) 
+    'click': () => Dispatch(Actions.setSpace(Template.instance().data.value))
 });

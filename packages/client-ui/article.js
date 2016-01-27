@@ -1,5 +1,7 @@
+/* global State, Template */
+
 const tpt = Template.article;
-const md = window.markdownit({ 'html': true }); 
+const md = window.markdownit({ 'html': true });
 
 tpt.helpers({
     'currentArticle': () => {

@@ -13,6 +13,7 @@ Package.onUse(function(api) {
             , 'mdl'
             , 'blaze-html-templates'
             , 'meteorflux:meteorflux'
+            , 'actions'
             , 'collections'
             , 'client-state'
             , 'utils'

@@ -1,3 +1,5 @@
+/* global Template */
+
 const tpt = Template.videoItem;
 
 tpt.onRendered(function() {

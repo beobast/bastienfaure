@@ -1,7 +1,7 @@
 /* global Package */
 
 Package.describe({
-    'name': 'client-state'
+    'name': 'actions'
     , 'version': '0.0.1'
     , 'summary': ''
 });
@@ -11,11 +11,9 @@ Package.onUse(function(api) {
     api.use(
         [
             'ecmascript'
-            , 'meteorflux:meteorflux'
-            , 'ramda:ramda'
-            , 'collections'
-            , 'utils'
+            , 'check'
         ]
         , 'client');
-    api.addFiles('client-state.js', 'client');
+    api.addFiles('actions.js', 'client');
+    api.export('Actions', 'client');
 });

@@ -8,7 +8,7 @@ const articles = collections.articles;
 
 const getVideoInfo = (videoId, cb) => {
     const req = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&fields=items(snippet(title,description,thumbnails,tags))&key=${Meteor.settings.apiKey}`;
-    HTTP.get(req, cb); 
+    HTTP.get(req, cb);
 };
 
 const saveVideoInfo = (db, videoId, error, result) => {
@@ -17,7 +17,7 @@ const saveVideoInfo = (db, videoId, error, result) => {
     }
     else {
         const info = result.data.items[0].snippet;
-        db.upsert({ videoId }, { videoId, 'title': info.title, 'description': info.description, 'thumbnails': info.thumbnails, 'tags': info.tags }); 
+        db.upsert({ videoId }, { videoId, 'title': info.title, 'description': info.description, 'thumbnails': info.thumbnails, 'tags': info.tags });
     }
 };
 
@@ -34,7 +34,7 @@ const updateVideos = path => {
     }));
 };
 
-const isArticle = filePath => path.extname(filePath) === '.txt'; 
+const isArticle = filePath => path.extname(filePath) === '.txt';
 
 const updateArticles = path => {
     if (!isArticle(path)) return;
@@ -44,7 +44,17 @@ const updateArticles = path => {
             console.log(error);
         }
         else {
-            articles.upsert({ path }, { path, data });
+            const title = utils.getArticleTitle(data);
+            articles.upsert(
+                { path }
+                , {
+                    path
+                    , data
+                    , title
+                    , 'description': utils.getArticleDescription(data)
+                    , 'slug': utils.slugify(title)
+                }
+            );
         }
     }));
 };

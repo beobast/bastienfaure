@@ -11,7 +11,7 @@ tpt.helpers({
             'text': navLink[0]
             , 'icon': navLink[1]
             , 'selected': navLink[2] === currentTemplate ? 'selected' : ''
-            , 'value': navLink[2]
+            , 'value': navLink[0] !== 'Accueil' ? navLink[0] : ''
         }), State.get('spaces'));
     }
 });

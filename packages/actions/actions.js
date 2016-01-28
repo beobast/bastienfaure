@@ -23,7 +23,7 @@ const SET_ARTICLE = 'SET_ARTICLE';
 // Action Creators
 
 const setSpace = makeActionCreator(SET_SPACE, ['template', String]);
-const setArticle = makeActionCreator(SET_ARTICLE, ['id', String]);
+const setArticle = makeActionCreator(SET_ARTICLE, ['slug', String]);
 
 
 Actions = {

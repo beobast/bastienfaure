@@ -1,5 +1,5 @@
-/* global Template, Dispatch, Actions */
+/* global Template, FlowRouter, utils */
 
 Template.navLink.events({
-    'click': () => Dispatch(Actions.setSpace(Template.instance().data.value))
+    'click': () => FlowRouter.go(`/${utils.latinize(Template.instance().data.value).toLowerCase()}`)
 });

@@ -1,4 +1,4 @@
-/* global Dispatch, Template, Actions */
+/* global Template, FlowRouter, utils */
 
 const tpt = Template.articleItem;
 
@@ -8,11 +8,10 @@ tpt.onRendered(function() {
 });
 
 tpt.events({
-    // 'click .mdl-card': () => Dispatch('SET_ARTICLE', { 'id': Template.instance().data.path })
-    'click .mdl-card': () => Dispatch(Actions.setArticle(Template.instance().data.path))
+    'click .mdl-card': () => FlowRouter.go(`${FlowRouter.current().path}/${utils.slugify(Template.instance().data.title)}`)
 });
 
 tpt.helpers({
-    'title': () => 'title'
-    , 'description': () => Template.instance().data.path
+    'title': () => Template.instance().data.title
+    , 'description': () => Template.instance().data.description
 });

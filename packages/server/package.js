@@ -16,6 +16,7 @@ Package.onUse(function(api) {
         , 'http'
         , 'ramda:ramda'
         , 'collections'
+        , 'utils'
     ], 'server');
   api.addFiles('server.js', 'server');
 });

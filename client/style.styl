@@ -9,16 +9,17 @@ hoverPointer()
     cursor pointer
 
 .videoItem,
-.article
+.articleItem
   display flex
   justify-content center
   .mdl-card
     hoverPointer()
     max-width 100%
+    min-height 0
     .description
       height 36px
-      width initial 
-      max-width 330px 
+      width initial
+      max-width 330px
 
 
 .mdl-navigation__link
@@ -60,7 +61,8 @@ iframe
   .article-content
     padding 16px
 
-  .videoItem
+  .videoItem,
+  .article
     .mdl-card
       .description
         display none

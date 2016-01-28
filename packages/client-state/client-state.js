@@ -4,7 +4,6 @@ const find = R.find;
 const equals = R.equals;
 const head = R.head;
 const keys = R.keys;
-const map = R.map;
 
 const videos = collections.videos;
 const articles = collections.articles;
@@ -27,7 +26,7 @@ const articles = collections.articles;
         , 'currentArticle': null
         , 'appBarTitle': 'Articles'
     };
-    map(key => State.set(key, initState[key]), keys(initState));
+    keys(initState).forEach(k => State.set(k, initState[k]));
 }());
 
 
@@ -43,10 +42,10 @@ State.modify('currentArticle', state => {
     const type = Action.type();
     const payload = Action.payload();
     if (equals(type, 'SET_SPACE')) return null;
-    if (equals(type, 'SET_ARTICLE')) return articles.findOne({ 'path': payload.id });
+    if (equals(type, 'SET_ARTICLE')) return articles.findOne({ 'slug': payload.slug });
     return state;
 });
 
 State.modify('appBarTitle', () => {
-    return head(find(space => equals(space[2], State.get('currentTemplate')), State.get('spaces')) || [State.get('currentArticle').path]);
+    return head(find(space => equals(space[2], State.get('currentTemplate')), State.get('spaces')) || [State.get('currentArticle').title]);
 });

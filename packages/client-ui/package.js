@@ -25,6 +25,8 @@ Package.onUse(function(api) {
             , 'parser'
             , 'reactive-var'
             , 'jquery'
+            , 'katex'
+            , 'highlightjs'
         ]
         , 'client'
     );

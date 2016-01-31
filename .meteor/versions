@@ -30,6 +30,7 @@ es5-shim@4.1.14
 fastclick@1.0.7
 geojson-utils@1.0.4
 google-fonts@0.0.1
+highlightjs@0.0.1
 hot-code-push@1.0.0
 html-tools@1.0.5
 htmljs@1.0.5
@@ -37,6 +38,7 @@ http@1.1.1
 id-map@1.0.4
 jquery@1.11.4
 kadira:flow-router@2.10.0
+katex@0.0.1
 launch-screen@1.0.4
 livedata@1.0.15
 logging@1.0.8

@@ -1,10 +1,29 @@
 /* global State, Template */
 
-const md = window.markdownit({ 'html': true });
+const renderMath = window.renderMathInElement;
+const hljs = window.hljs;
+const md = window.markdownit({
+    'html': true
+    , 'highlight': (str, lang) => {
+        if (lang && hljs.getLanguage(lang)) {
+            try {
+                return hljs.highlight(lang, str).value;
+            }
+            catch (__) {}
+        }
+        return ''; // use external default escaping
+    }
+});
 
 Template.note.onRendered(() => {
     const self = this;
     self.$('.mdl-layout__content').scrollTop(0);
+    renderMath(self.$('.note-content')[0], {
+        'delimiters': [
+            { 'left': '$$', 'right': '$$', 'display': true }
+            , { 'left': '$', 'right': '$', 'display': false }
+        ]
+    });
 });
 
 Template.note.helpers({

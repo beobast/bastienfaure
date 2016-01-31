@@ -68,8 +68,8 @@ Meteor.startup(() => {
     videos.remove({});
     notes.remove({});
 
-    const videosWatcher = chokidar.watch(path.join(Meteor.settings.root, 'videos/videos.txt'));
-    const notesWatcher = chokidar.watch(path.join(Meteor.settings.root, 'notes/'));
+    const videosWatcher = chokidar.watch(path.join(Meteor.settings.root, 'videos/videos.txt'), { 'ignorePermissionErrors': true });
+    const notesWatcher = chokidar.watch(path.join(Meteor.settings.root, 'notes/'), { 'ignorePermissionErrors': true });
 
     videosWatcher
         .on('add', Meteor.bindEnvironment(path => updateVideos(path)))

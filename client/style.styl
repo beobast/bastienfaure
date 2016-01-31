@@ -9,13 +9,15 @@ hoverPointer()
     cursor pointer
 
 .videoItem,
-.articleItem
+.noteItem
   display flex
   justify-content center
   .mdl-card
     hoverPointer()
-    max-width 100%
+    max-width 250px
     min-height 0
+    .title
+      word-break break-word
     .description
       height 36px
       width initial
@@ -32,24 +34,23 @@ hoverPointer()
     margin-right 32px
 
 
-.article-content
+.note-content
   padding 40px
-
-article
-  padding 16px
-  max-width 700px
-  margin auto
-  &.mdl-card
-    width initial
-  img
-    display block
+  .mdl-card
+    padding 16px
+    max-width 700px
     margin auto
-    max-width 100%
-  h1
-    text-align center
-  pre
-    overflow-x auto
-    max-width 100%
+    &.mdl-card
+      width initial
+    img
+      display block
+      margin auto
+      max-width 100%
+    h1
+      text-align center
+    pre
+      overflow-x auto
+      max-width 100%
 
 iframe
   margin auto
@@ -58,11 +59,11 @@ iframe
 
 
 @media (max-width: 480px)
-  .article-content
+  .note-content
     padding 16px
 
   .videoItem,
-  .article
+  .noteItem
     .mdl-card
       .description
         display none

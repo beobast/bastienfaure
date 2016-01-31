@@ -17,16 +17,16 @@ const makeActionCreator = (type, ...argNames) => {
 // Action Types
 
 const SET_SPACE = 'SET_SPACE';
-const SET_ARTICLE = 'SET_ARTICLE';
+const SET_NOTE = 'SET_NOTE';
 
 
 // Action Creators
 
 const setSpace = makeActionCreator(SET_SPACE, ['template', String]);
-const setArticle = makeActionCreator(SET_ARTICLE, ['slug', String]);
+const setNote = makeActionCreator(SET_NOTE, ['slug', String]);
 
 
 Actions = {
     setSpace
-    , setArticle
+    , setNote
 };

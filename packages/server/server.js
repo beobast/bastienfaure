@@ -3,7 +3,7 @@ const path = Npm.require('path');
 const fs = Npm.require('fs');
 const curry = R.curry;
 const videos = collections.videos;
-const articles = collections.articles;
+const notes = collections.notes;
 
 
 const getVideoInfo = (videoId, cb) => {
@@ -34,25 +34,27 @@ const updateVideos = path => {
     }));
 };
 
-const isArticle = filePath => path.extname(filePath) === '.txt';
+const isNote = filePath => path.extname(filePath) === '.txt';
 
-const updateArticles = path => {
-    if (!isArticle(path)) return;
+const updateNotes = path => {
+    if (!isNote(path)) return;
 
     fs.readFile(path, 'utf8', Meteor.bindEnvironment((error, data) => {
         if (error) {
             console.log(error);
         }
         else {
-            const title = utils.getArticleTitle(data);
-            articles.upsert(
+            const title = utils.getNoteTitle(data);
+            const slug = utils.slugify(title);
+            notes.upsert(
                 { path }
                 , {
                     path
                     , data
                     , title
-                    , 'description': utils.getArticleDescription(data)
-                    , 'slug': utils.slugify(title)
+                    , 'description': utils.getNoteDescription(data)
+                    , 'cover': `images/${slug}.png`
+                    , slug
                 }
             );
         }
@@ -60,14 +62,19 @@ const updateArticles = path => {
 };
 
 Meteor.startup(() => {
+
+    videos.remove({});
+    notes.remove({});
+
     const videosWatcher = chokidar.watch(path.join(Meteor.settings.root, 'videos/videos.txt'));
-    const articlesWatcher = chokidar.watch(path.join(Meteor.settings.root, 'articles/'));
+    const notesWatcher = chokidar.watch(path.join(Meteor.settings.root, 'notes/'));
 
     videosWatcher
         .on('add', Meteor.bindEnvironment(path => updateVideos(path)))
         .on('change', Meteor.bindEnvironment(path => updateVideos(path)));
 
-    articlesWatcher
-        .on('add', Meteor.bindEnvironment(path => updateArticles(path)))
-        .on('change', Meteor.bindEnvironment(path => updateArticles(path)));
+    notesWatcher
+        .on('add', Meteor.bindEnvironment(path => updateNotes(path)))
+        .on('change', Meteor.bindEnvironment(path => updateNotes(path)));
+
 });

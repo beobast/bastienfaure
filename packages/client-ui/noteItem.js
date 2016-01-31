@@ -1,6 +1,6 @@
 /* global Template, FlowRouter, utils */
 
-const tpt = Template.articleItem;
+const tpt = Template.noteItem;
 
 tpt.onRendered(function() {
     const self = this;

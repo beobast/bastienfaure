@@ -18,9 +18,9 @@ const latinize = str => {
     return strAccentsOut.join('');
 };
 
-const getArticleTitle = str => str.trim().split('\n')[0].substring(2);
+const getNoteTitle = str => str.trim().split('\n')[0].substring(2);
 
-const getArticleDescription = str => {
+const getNoteDescription = str => {
     const s = str.trim();
     return s.substr(s.indexOf('\n') + 1, 140).concat('...');
 };
@@ -36,7 +36,7 @@ const slugify = s => {
 
 utils = {
     latinize
-    , getArticleTitle
-    , getArticleDescription
+    , getNoteTitle
+    , getNoteDescription
     , slugify
 };

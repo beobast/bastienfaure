@@ -1,0 +1,7 @@
+<template name="notes">
+    <div class="page-content mdl-grid">
+        {{#each a in notes}}
+            <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--12-col-phone">{{> noteItem a}}</div>
+        {{/each}}
+    </div>
+</template>

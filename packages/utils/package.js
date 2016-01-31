@@ -1,7 +1,9 @@
+/* global Package */
+
 Package.describe({
-  name: 'utils',
-  version: '0.0.1',
-  summary: ''
+  'name': 'utils'
+  , 'version': '0.0.1'
+  , 'summary': 'Utilities Functions'
 });
 
 Package.onUse(function(api) {

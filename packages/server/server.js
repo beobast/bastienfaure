@@ -1,3 +1,5 @@
+/* global Npm, R, HTTP, collections, Meteor, utils */
+
 const chokidar = Npm.require('chokidar');
 const path = Npm.require('path');
 const fs = Npm.require('fs');
@@ -53,13 +55,13 @@ const updateNotes = path => {
                     , data
                     , title
                     , 'description': utils.getNoteDescription(data)
-                    , 'cover': `images/${slug}.png`
                     , slug
                 }
             );
         }
     }));
 };
+
 
 Meteor.startup(() => {
 

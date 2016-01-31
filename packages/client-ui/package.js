@@ -1,7 +1,9 @@
+/* global Package */
+
 Package.describe({
-    name: 'client-ui',
-    version: '0.0.1',
-    summary: 'Client User Interface'
+    'name': 'client-ui'
+    , 'version': '0.0.1'
+    , 'summary': 'Client User Interface'
 });
 
 Package.onUse(function(api) {
@@ -22,6 +24,7 @@ Package.onUse(function(api) {
             , 'ramda:ramda'
             , 'parser'
             , 'reactive-var'
+            , 'jquery'
         ]
         , 'client'
     );

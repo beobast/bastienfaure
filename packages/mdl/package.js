@@ -1,7 +1,9 @@
+/* global Package */
+
 Package.describe({
-    name: 'mdl',
-    version: '0.0.1',
-    summary: 'Material Design Lite'
+    'name': 'mdl'
+    , 'version': '0.0.1'
+    , 'summary': 'Material Design Lite'
 });
 
 Package.onUse(function(api) {

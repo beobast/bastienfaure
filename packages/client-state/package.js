@@ -3,7 +3,7 @@
 Package.describe({
     'name': 'client-state'
     , 'version': '0.0.1'
-    , 'summary': ''
+    , 'summary': 'Flux Global State'
 });
 
 Package.onUse(function(api) {

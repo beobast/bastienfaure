@@ -1,7 +1,9 @@
+/* global Package */
+
 Package.describe({
-    'name': 'google-fonts',
-    'version': '0.0.1',
-    'summary': 'Google Roboto font and Material Design icons',
+    'name': 'google-fonts'
+    , 'version': '0.0.1'
+    , 'summary': 'Google Roboto font and Material Design icons'
 });
 
 Package.onUse(function(api) {

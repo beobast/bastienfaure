@@ -1,3 +1,6 @@
+/* global Mongo, Meteor, collections:true */
+/* exported collections */
+
 collections = {
     'videos': new Mongo.Collection('videos')
     , 'notes': new Mongo.Collection('notes')

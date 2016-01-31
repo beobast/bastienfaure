@@ -3,7 +3,7 @@
 Package.describe({
     'name': 'actions'
     , 'version': '0.0.1'
-    , 'summary': ''
+    , 'summary': 'Flux Action Types and Creators'
 });
 
 Package.onUse(function(api) {

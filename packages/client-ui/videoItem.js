@@ -1,12 +1,10 @@
 /* global Template */
 
-const tpt = Template.videoItem;
-
-tpt.onRendered(function() {
+Template.videoItem.onRendered(function() {
     const self = this;
     self.$('.description').dotdotdot({});
 });
 
-tpt.events({
+Template.videoItem.events({
     'click .mdl-card': () => window.open(`http://youtu.be/${Template.instance().data.videoId}`)
 });

@@ -1,7 +1,9 @@
+/* global Package */
+
 Package.describe({
-  name: 'parser',
-  version: '0.0.1',
-  summary: ''
+  'name': 'parser'
+  , 'version': '0.0.1'
+  , 'summary': 'Markdown Parser'
 });
 
 Package.onUse(function(api) {

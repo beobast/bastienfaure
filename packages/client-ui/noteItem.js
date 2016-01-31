@@ -1,17 +1,16 @@
-/* global Template, FlowRouter, utils */
+/* global Template, FlowRouter */
 
-const tpt = Template.noteItem;
-
-tpt.onRendered(function() {
+Template.noteItem.onRendered(function() {
     const self = this;
     self.$('.description').dotdotdot({});
 });
 
-tpt.events({
-    'click .mdl-card': () => FlowRouter.go(`${FlowRouter.current().path}/${utils.slugify(Template.instance().data.title)}`)
+Template.noteItem.events({
+    'click .mdl-card': () => FlowRouter.go(`${FlowRouter.current().path}/${Template.instance().data.slug}`)
 });
 
-tpt.helpers({
+Template.noteItem.helpers({
     'title': () => Template.instance().data.title
     , 'description': () => Template.instance().data.description
+    , 'cover': () => `images/${Template.instance().data.slug}.png`
 });

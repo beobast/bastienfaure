@@ -43,6 +43,6 @@ State.modify('currentNote', state => {
 });
 
 State.modify('appBarTitle', () => {
-    return head(find(space => equals(space[2], State.get('currentTemplate')), State.get('spaces'))
-                || [State.get('currentNote') ? State.get('currentNote').title : 'Loading']);
+    const note = State.get('currentNote');
+    return head(find(space => equals(space[2], State.get('currentTemplate')), State.get('spaces')) || [note ? note.title : 'Loading']);
 });

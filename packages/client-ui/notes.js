@@ -1,7 +1,5 @@
 /* global Template, State */
 
-const tpt = Template.notes;
-
-tpt.helpers({
+Template.notes.helpers({
     'notes': () => State.get('notes')
 });

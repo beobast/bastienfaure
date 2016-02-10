@@ -1,5 +1,14 @@
-/* global Template, FlowRouter, utils */
+/* global Template, FlowRouter, utils, Meteor, R */
 
 Template.navLink.events({
-    'click': () => FlowRouter.go(`/${utils.latinize(Template.instance().data.value).toLowerCase()}`)
+    'click': () => {
+        const route = utils.latinize(Template.instance().data.value).toLowerCase();
+        if (R.equals(route, 'deconnexion')) {
+            Meteor.logout();
+            FlowRouter.go(`/`);
+        }
+        else {
+            FlowRouter.go(`/${route}`);
+        }
+    }
 });

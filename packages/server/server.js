@@ -1,4 +1,4 @@
-/* global Npm, R, HTTP, collections, Meteor, utils */
+/* global Npm, R, HTTP, collections, Meteor, utils, Accounts */
 
 const chokidar = Npm.require('chokidar');
 const path = Npm.require('path');
@@ -38,7 +38,7 @@ const updateVideos = path => {
 
 const isNote = filePath => path.extname(filePath) === '.txt';
 
-const updateNotes = path => {
+const updateNotes = (path, type) => {
     if (!isNote(path)) return;
 
     fs.readFile(path, 'utf8', Meteor.bindEnvironment((error, data) => {
@@ -56,6 +56,7 @@ const updateNotes = path => {
                     , title
                     , 'description': utils.getNoteDescription(data)
                     , slug
+                    , type
                 }
             );
         }
@@ -65,18 +66,26 @@ const updateNotes = path => {
 
 Meteor.startup(() => {
 
+    const username = 'faureb';
+    const password = username;
+    !Accounts.findUserByUsername(username) && Accounts.createUser({ username, password });
+
     videos.remove({});
     notes.remove({});
 
     const videosWatcher = chokidar.watch(path.join(Meteor.settings.root, 'videos/videos.txt'), { 'ignorePermissionErrors': true });
     const notesWatcher = chokidar.watch(path.join(Meteor.settings.root, 'notes/'), { 'ignorePermissionErrors': true });
+    const draftsWatcher = chokidar.watch(path.join(Meteor.settings.root, 'drafts/'), { 'ignorePermissionErrors': true });
 
     videosWatcher
         .on('add', Meteor.bindEnvironment(path => updateVideos(path)))
         .on('change', Meteor.bindEnvironment(path => updateVideos(path)));
 
     notesWatcher
-        .on('add', Meteor.bindEnvironment(path => updateNotes(path)))
-        .on('change', Meteor.bindEnvironment(path => updateNotes(path)));
+        .on('add', Meteor.bindEnvironment(path => updateNotes(path, 'note')))
+        .on('change', Meteor.bindEnvironment(path => updateNotes(path, 'note')));
 
+    draftsWatcher
+        .on('add', Meteor.bindEnvironment(path => updateNotes(path, 'draft')))
+        .on('change', Meteor.bindEnvironment(path => updateNotes(path, 'draft')));
 });

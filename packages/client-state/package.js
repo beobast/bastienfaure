@@ -11,6 +11,7 @@ Package.onUse(function(api) {
     api.use(
         [
             'ecmascript'
+            , 'accounts-base'
             , 'meteorflux:meteorflux'
             , 'ramda:ramda'
             , 'collections'

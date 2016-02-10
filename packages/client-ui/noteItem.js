@@ -10,7 +10,5 @@ Template.noteItem.events({
 });
 
 Template.noteItem.helpers({
-    'title': () => Template.instance().data.title
-    , 'description': () => Template.instance().data.description
-    , 'cover': () => `images/${Template.instance().data.slug}.png`
+    'cover': () => `images/${Template.instance().data.slug}.png`
 });

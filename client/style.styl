@@ -1,4 +1,10 @@
+flexColumnCenter()
+  display flex
+  flex-direction column
+  align-items center
+
 .mdl-layout__content
+  flexColumnCenter()
   background #fafafa
 
 .mdl-layout__drawer
@@ -36,6 +42,8 @@ hoverPointer()
 
 .note-content
   padding 40px
+  #comments
+    display flex !important
   .mdl-card
     padding 16px
     max-width 700px
@@ -53,6 +61,8 @@ hoverPointer()
     pre
       overflow-x auto
       max-width 100%
+    table
+      margin 16px auto 32px auto
     blockquote
       font-size 16px
       margin-left 32px
@@ -65,10 +75,42 @@ hoverPointer()
         content ''
         margin 0
 
+.CodeMirror
+  max-width 700px
+  height 100%
+
 iframe
   margin auto
   padding 16px
 
+
+.login
+  display flex
+  flex-direction column
+  flex 1
+  justify-content center
+  .mdl-card
+    width 200px
+    .login-form
+      flexColumnCenter()
+      padding 16px
+      button
+        margin 20px 0
+
+.admin
+  display flex
+  flex-direction column
+  flex 1
+  justify-content center
+  .mdl-card
+    width 200px
+    .mdl-card__title
+      justify-content center
+    .change-password-form
+      flexColumnCenter()
+      padding 0 16px 16px 16px
+      button
+        margin 20px 0
 
 
 @media (max-width: 480px)

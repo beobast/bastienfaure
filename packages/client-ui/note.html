@@ -1,7 +1,27 @@
 <template name="note">
     <div class="note-content">
-        <div class="mdl-card mdl-shadow--2dp">
-            {{{currentNote}}}
-        </div>
+        {{#if currentUser}}
+            <!--<textarea class="codemirror">{{raw}}</textarea>
+            <div class="mdl-card mdl-shadow-2dp">
+                {{#if buffer}}{{{buffer}}}{{else}} {{/if}}
+            </div>-->
+            <div class="mdl-card mdl-shadow--2dp">
+                {{{currentNote}}}
+            </div>
+        {{else}}
+            <div class="mdl-card mdl-shadow--2dp">
+                {{{currentNote}}}
+            </div>
+            <script src="https://apis.google.com/js/plusone.js"></script>
+            <div id="comments"></div>
+            <script>
+                gapi.comments.render('comments', {
+                    'href': window.location,
+                    'width': '700',
+                    'first_party_property': 'BLOGGER',
+                    'view_type': 'FILTERED_POSTMOD'
+                });
+            </script>
+        {{/if}}
     </div>
 </template>

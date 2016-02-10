@@ -22,7 +22,7 @@ const SET_NOTE = 'SET_NOTE';
 
 // Action Creators
 
-const setSpace = makeActionCreator(SET_SPACE, ['template', String]);
+const setSpace = makeActionCreator(SET_SPACE, ['space', String]);
 const setNote = makeActionCreator(SET_NOTE, ['slug', String]);
 
 

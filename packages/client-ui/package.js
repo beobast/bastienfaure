@@ -27,6 +27,7 @@ Package.onUse(function(api) {
             , 'jquery'
             , 'katex'
             , 'highlightjs'
+            , 'codemirror'
         ]
         , 'client'
     );
@@ -44,6 +45,10 @@ Package.onUse(function(api) {
             , 'noteItem.js'
             , 'notes.html'
             , 'notes.js'
+            , 'login.html'
+            , 'login.js'
+            , 'admin.html'
+            , 'admin.js'
             , 'main.html'
             , 'main.js'
         ]
